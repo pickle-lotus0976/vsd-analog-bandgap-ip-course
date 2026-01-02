@@ -15,7 +15,7 @@ The BGR operates by summing two voltages with opposing temperature coefficients 
 
 **Governing Equation:**
 $$V_{REF} = V_{BE} + K \cdot \Delta V_{BE}$$
-*By tuning the gain factor {$$KS$} (via resistor ratios), the positive and negative slopes cancel out.*
+*By tuning the gain factor $K$ (via resistor ratios), the positive and negative slopes cancel out.*
 
 ## 3. Pre-Layout Simulation (NgSpice)
 
@@ -31,19 +31,22 @@ All circuit simulations were performed using **NgSpice**. The design was rigorou
 
 * **Corner TT (Typical-Typical):**
     * The simulation exhibits the characteristic "umbrella" curve, confirming successful first-order temperature compensation within the target specifications.
+    ![DC-TT-Plot](Images/Screenshot_2026-01-02_15-00-22.png)
 
 * **Corner SS (Slow-Slow):**
     * The design maintains stability and functionality even under slower process conditions, with the reference voltage remaining within acceptable limits.
+    ![DC-SS-Plot](Images/Screenshot_2026-01-02_14-54-42.png)
 
 * **Corner FF (Fast-Fast):**
     * Indicates robust performance with optimal temperature coefficient characteristics, showing minimal variation across the temperature range.
+    ![DC-FF-Plot](Images/Screenshot_2026-01-02_14-46-51.png)
 
-### 3.3 Transient Analysis (Start-up)
-**Objective:** Verify the start-up circuit functionality and measure settling time.
+### 3.3 DC Supply Sweep (Start-up Verification)
+**Objective:** Verify the start-up circuit functionality ensuring $V_{REF}$ stabilizes once $V_{DD}$ reaches the operating level.
 
-* **Start-up Logic:** A "kick" circuit detects if the main branch current is zero and injects current to wake up the core. Once $V_{REF}$ stabilizes, the start-up branch turns off to save power.
-* **Settling Time:** The output voltage stabilizes at ~1.2V rapidly, ensuring the circuit meets the required start-up time specifications.
+* **Start-up Behavior:** The simulation confirms that the circuit successfully snaps out of the zero-current state and stabilizes at ~1.2V once the supply voltage exceeds ~1.4V.
 
+![Supply-Sweep-Plot](Images/Screenshot_2026-01-02_14-58-52.png)
 
 ## 4. Physical Design (Layout)
 
@@ -52,6 +55,7 @@ The layout was created using **Magic VLSI** with a focus on matching and symmetr
 * **Matching:** Critical BJTs and resistors utilize common-centroid placement to minimize process gradients.
 * **LVS Status:** **Clean**. The layout netlist matches the schematic netlist uniquely (Verified via Netgen).
 
+![Magic-Layout-Top](Images/Screenshot_2026-01-02_18-48-05.png)
 
 ## 5. Work in Progress: Post-Layout Verification
 
