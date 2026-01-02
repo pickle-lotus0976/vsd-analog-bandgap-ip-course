@@ -15,7 +15,7 @@ The BGR operates by summing two voltages with opposing temperature coefficients 
 
 **Governing Equation:**
 $$V_{REF} = V_{BE} + K \cdot \Delta V_{BE}$$
-*By tuning the gain factor $K$ (via resistor ratios), the positive and negative slopes cancel out.*
+*By tuning the gain factor {$$KS$} (via resistor ratios), the positive and negative slopes cancel out.*
 
 ## 3. Pre-Layout Simulation (NgSpice)
 
