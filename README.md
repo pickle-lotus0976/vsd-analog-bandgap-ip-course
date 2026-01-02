@@ -30,27 +30,20 @@ All circuit simulations were performed using **NgSpice**. The design was rigorou
 **Objective:** Verify temperature independence of $V_{REF}$ from -40°C to 125°C.
 
 * **Corner TT (Typical-Typical):**
-    * Achieved Temperature Coefficient: **~22 ppm/°C**
-    * The "umbrella" curve indicates successful cancellation of first-order temperature effects.
-    ![DC-TT-Plot](Day2/2-35.png)
+    * The simulation exhibits the characteristic "umbrella" curve, confirming successful first-order temperature compensation within the target specifications.
 
 * **Corner SS (Slow-Slow):**
-    * Achieved Temperature Coefficient: **~43 ppm/°C**
-    * Validates functionality even with slower process parameters.
-    ![DC-SS-Plot](Day2/2-38.png)
+    * The design maintains stability and functionality even under slower process conditions, with the reference voltage remaining within acceptable limits.
 
 * **Corner FF (Fast-Fast):**
-    * Achieved Temperature Coefficient: **~10.1 ppm/°C**
-    * Best-case performance scenario.
-    ![DC-FF-Plot](Day2/2-41.png)
+    * Indicates robust performance with optimal temperature coefficient characteristics, showing minimal variation across the temperature range.
 
 ### 3.3 Transient Analysis (Start-up)
 **Objective:** Verify the start-up circuit functionality and measure settling time.
 
 * **Start-up Logic:** A "kick" circuit detects if the main branch current is zero and injects current to wake up the core. Once $V_{REF}$ stabilizes, the start-up branch turns off to save power.
-* **Settling Time:** The output stabilizes at ~1.2V within **1.2 $\mu$s**, meeting the < 2 $\mu$s specification.
+* **Settling Time:** The output voltage stabilizes at ~1.2V rapidly, ensuring the circuit meets the required start-up time specifications.
 
-![Transient-Startup](Day2/2-47.png)
 
 ## 4. Physical Design (Layout)
 
@@ -59,7 +52,6 @@ The layout was created using **Magic VLSI** with a focus on matching and symmetr
 * **Matching:** Critical BJTs and resistors utilize common-centroid placement to minimize process gradients.
 * **LVS Status:** **Clean**. The layout netlist matches the schematic netlist uniquely (Verified via Netgen).
 
-![Magic-Layout-Top](Day2/2-64.png)
 
 ## 5. Work in Progress: Post-Layout Verification
 
