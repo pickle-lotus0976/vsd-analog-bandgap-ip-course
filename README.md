@@ -30,11 +30,4 @@ All circuit simulations were performed using **NgSpice**. The table below summar
 The layout was created using **Magic VLSI** with a focus on matching and symmetry.
 
 * **Status:** Work in Progress (LVS Pending).
-* **Strategy:** Critical BJTs and resistors utilize common-centroid placement.
-
 ![Magic-Layout-Top](Images/Screenshot_2026-01-02_18-48-05.png)
-
-## 5. Acknowledgements
-* **Santunu Sarangi** & **Saroj Rout** for technical mentorship.
-* **Kunal Ghosh** (co-founder, VSD) for the workshop platform.
-* **VSD-IAT** for the comprehensive curriculum.
